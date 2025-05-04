@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>A-Frame Сцена</title>
+  <title>A-Frame Сцена (Перевірка шрифту)</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 <body>
@@ -10,17 +10,16 @@
 
     <!-- === Ассети === -->
     <a-assets>
-      <!-- Текстура -->
       <img id="fruitTexture"
            src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg"
            crossorigin="anonymous">
-      <!-- ШРИФТ -->
+      <!-- Переконайтесь, що шлях до вашого JSON файлу шрифта правильний -->
       <a-asset-item id="segoescbFont" src="fonts/segoescb-msdf.json"></a-asset-item>
     </a-assets>
 
     <!-- === Об'єкти сцени === -->
 
-    <!-- Фон -->
+    <!-- Фон (Стандартний сірий, як ви хотіли) -->
     <a-sky color="grey"></a-sky>
 
     <!-- Примітиви -->
@@ -32,23 +31,24 @@
       <a-torus-knot color="orange" radius="1.2" position="-3 1 -5"></a-torus-knot>
     </a-entity>
 
-
+    <!-- Група для Тексту та ЗМЕНШЕНОЇ Підкладки -->
     <a-entity position="-1 1.5 -6">
-        <!-- 1. Біла ПІДКЛАДКА  -->
+        <!-- 1. Біла ПІДКЛАДКА (зменшені розміри) -->
         <a-plane color="white"
-                 height="1.5" width="11"  
-                 position="0 0 -0.05">    
+                 height="1" width="10.5"  <!-- ЗМЕНШЕНО -->
+                 position="0 0 -0.05">
         </a-plane>
-
-        <!-- 2. Сам ТЕКСТ -->
+        <!-- 2. Текст -->
+        <!-- !!!! ЗАМІНІТЬ "Kapusta" НА ВАШЕ ПРІЗВИЩЕ !!!! -->
+        <!-- !!!! ПЕРЕВІРТЕ КОНСОЛЬ F12 ЯКЩО НЕМАЄ ТЕКСТУ !!!! -->
         <a-text value="Вітаємо у браузерній VR! Kapusta"
-                font="#segoescbFont"   <!-- ВИПРАВЛЕНО: посилання на ID ассету -->
+                font="#segoescbFont"   <!-- Перевірте ID і шлях в <a-asset-item> -->
                 negate="false"       <!-- Для MSDF -->
                 color="black"
-                width="10"           <!-- Ширина області тексту -->
-                position="-5 0 0"    <!-- Позиція відносно <a-entity>, вирівняно по лівому краю площини-->
-                anchor="left"        <!-- Точка прив'язки тексту -->
-                align="left">        <!-- Вирівнювання тексту -->
+                width="10"
+                position="-5 0 0"    <!-- Позиція відносно <a-entity> -->
+                anchor="left"
+                align="left">
         </a-text>
     </a-entity>
 
