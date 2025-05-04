@@ -1,70 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"> <!-- Обов'язково для українських літер -->
-  <title>A-Frame Сцена (до 3.10 вкл.)</title>
+  <meta charset="utf-8"> <!-- Для українських літер -->
+  <title>A-Frame Сцена (до 3.10, без моделі)</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 <body>
-  <!-- Додаємо stats для моніторингу продуктивності -->
+  <!-- Статистика продуктивності -->
   <a-scene stats>
 
-    <!-- === Ресурси для попереднього завантаження === -->
+    <!-- === Ассети (Розділ 3.9) === -->
     <a-assets>
-      <!-- Текстура для площини (з прикладу 3.8 / рис. 3.13, взято з коду на с.50) -->
+      <!-- 1. Текстура для площини (Розділ 3.8) -->
       <img id="fruitTexture"
            src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg"
            crossorigin="anonymous">
 
-      <!-- Ваш згенерований шрифт (переконайтесь, що шляхи правильні!) -->
-      <a-asset-item id="customFont" src="fonts/myfont.json"></a-asset-item> <!-- Посилання на JSON файл -->
-      <!-- PNG файл шрифту зазвичай підтягується автоматично через JSON -->
+      <!-- 2. Ваш шрифт (Розділ 3.6) - перевірте правильність шляху! -->
+      <a-asset-item id="customFont" src="fonts/myfont.json"></a-asset-item>
 
-      <!-- 3D модель (приклад BrainStem з с.50, 51) -->
-      <a-asset-item id="brainModel"
-           src="https://raw.githubusercontent.com/aframevr/assets/master/test-models/models/glTF-2.0/brainstem/BrainStem.gltf"
-           crossorigin="anonymous"></a-asset-item>
     </a-assets>
 
     <!-- === Об'єкти сцени === -->
 
     <!-- Фон -->
-    <a-sky color="#ECECEC"></a-sky> <!-- Змінив колір неба на світліший -->
+    <a-sky color="#ECECEC"></a-sky>
 
-    <!-- Групуємо елементи з попереднього завдання для зручності (опціонально) -->
-    <a-entity position="0 0 0">
+    <!-- Об'єкти з попередніх завдань -->
+    <a-entity>
       <!-- Зелений тор -->
       <a-torus position="-2 1 -5" color="green" radius="1.2"></a-torus>
-
-      <!-- Фіолетова площина з ТЕКСТУРОЮ (замість кольору) -->
+      <!-- Площина з текстурою (Розділ 3.8) -->
       <a-plane src="#fruitTexture" width="7" height="7" rotation="-55 0 0" position="-2 -2 -5"></a-plane>
-
       <!-- Жовтий циліндр -->
       <a-cylinder color="yellow" height="2" radius="0.05" position="-2 -1 -5"></a-cylinder>
-
       <!-- Синій циліндр -->
       <a-cylinder color="blue" height="2" radius="0.05" position="-3 -1 -5"></a-cylinder>
-
       <!-- Помаранчевий тор-вузол -->
       <a-torus-knot color="orange" radius="1.2" position="-3 1 -5"></a-torus-knot>
     </a-entity>
 
 
-    <!-- Ваш текст з прізвищем на білій площині -->
-    <a-entity position="0 1.5 -3"> <!-- Розмістив трохи ближче і вище -->
+    <!-- Текст українською з Вашим прізвищем (Розділ 3.5, 3.6) -->
+    <a-entity position="0 1.5 -3"> <!-- Ближче і вище -->
         <!-- Підкладка -->
         <a-plane color="white" height="1" width="6" position="0 0 -0.1"></a-plane>
-        <a-text value="Welcome to VR! Kapusta" <!-- <-- ВАШЕ ПРІЗВИЩЕ ТУТ -->
-                font="#customFont" <!-- Використання шрифта з a-assets -->
-                negate="false" <!-- Обов'язково для шрифтів -->
+        <!-- Сам текст -->
+        <a-text value="Welcome to VR! Kapusta"
+                font="#customFont"     <!-- Посилання на шрифт -->
+                negate="false"       <!-- Важливо для MSDF -->
                 color="black"
                 width="5"
-                anchor="center"
+                anchor="center"      <!-- Центрування -->
                 align="center"></a-text>
     </a-entity>
 
-    <!-- 3D модель -->
-    <a-entity gltf-model="#brainModel" position="2 1 -5" scale="0.5 0.5 0.5"></a-entity>
   </a-scene>
 </body>
 </html>
