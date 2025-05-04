@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"> 
+  <meta charset="utf-8">
   <title>A-Frame Сцена</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 <body>
   <a-scene>
 
-    <!-- === Ассети (Ресурси) === -->
+    <!-- === Ассети === -->
     <a-assets>
-      <!-- Текстура для площини -->
+      <!-- Текстура -->
       <img id="fruitTexture"
            src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg"
            crossorigin="anonymous">
-
-      <!-- ПОСИЛАННЯ НА ШРИФТ -->
+      <!-- ШРИФТ -->
       <a-asset-item id="segoescbFont" src="fonts/segoescb-msdf.json"></a-asset-item>
     </a-assets>
 
     <!-- === Об'єкти сцени === -->
 
     <!-- Фон -->
-     <a-sky color="#DDDDDD"></a-sky>
+    <a-sky color="grey"></a-sky>
 
-    <!-- Примітиви з попередніх кроків -->
+    <!-- Примітиви -->
     <a-entity>
       <a-torus position="-2 1 -5" color="green" radius="1.2"></a-torus>
-      <!-- Площина з текстурою -->
       <a-plane src="#fruitTexture" width="7" height="7" rotation="-55 0 0" position="-2 -2 -5"></a-plane>
       <a-cylinder color="yellow" height="2" radius="0.05" position="-2 -1 -5"></a-cylinder>
       <a-cylinder color="blue" height="2" radius="0.05" position="-3 -1 -5"></a-cylinder>
       <a-torus-knot color="orange" radius="1.2" position="-3 1 -5"></a-torus-knot>
     </a-entity>
 
-    <!-- Біла площина для тексту (з 3.5 / рис 3.10) -->
-        <a-plane width="9" height="2" position="3 1 -9" color="white"></a-plane>
-    
-    <!-- Розташування та розмір підібрані під Рис 3.12 -->
-    <a-text value="Welcome to VR! Kapusta" color="black" width="10"
-    position="-0.5 1 -6" font="segoescb-msdf.json" negate="false">
-    </a-text>
+
+    <a-entity position="-1 1.5 -6">
+        <!-- 1. Біла ПІДКЛАДКА  -->
+        <a-plane color="white"
+                 height="1.5" width="11"  
+                 position="0 0 -0.05">    
+        </a-plane>
+
+        <!-- 2. Сам ТЕКСТ -->
+        <a-text value="Вітаємо у браузерній VR! Kapusta"
+                font="#segoescbFont"   <!-- ВИПРАВЛЕНО: посилання на ID ассету -->
+                negate="false"       <!-- Для MSDF -->
+                color="black"
+                width="10"           <!-- Ширина області тексту -->
+                position="-5 0 0"    <!-- Позиція відносно <a-entity>, вирівняно по лівому краю площини-->
+                anchor="left"        <!-- Точка прив'язки тексту -->
+                align="left">        <!-- Вирівнювання тексту -->
+        </a-text>
+    </a-entity>
 
   </a-scene>
 </body>
