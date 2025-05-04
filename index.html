@@ -24,9 +24,6 @@
       <a-asset-item id="brainModel"
            src="https://raw.githubusercontent.com/aframevr/assets/master/test-models/models/glTF-2.0/brainstem/BrainStem.gltf"
            crossorigin="anonymous"></a-asset-item>
-      <!-- Якщо хочете використати ВЛАСНУ модель .glb з папки models: -->
-      <!-- <a-asset-item id="myOwnModel" src="models/your_model_name.glb"></a-asset-item> -->
-
     </a-assets>
 
     <!-- === Об'єкти сцени === -->
@@ -57,8 +54,7 @@
     <a-entity position="0 1.5 -3"> <!-- Розмістив трохи ближче і вище -->
         <!-- Підкладка -->
         <a-plane color="white" height="1" width="6" position="0 0 -0.1"></a-plane>
-        <!-- Текст (ЗАМІНІТЬ "ВашеПрізвище" на ваше!) -->
-        <a-text value="Ласкаво просимо! Капуста" <!-- <-- ВАШЕ ПРІЗВИЩЕ ТУТ -->
+        <a-text value="Welcome to VR! Kapusta" <!-- <-- ВАШЕ ПРІЗВИЩЕ ТУТ -->
                 font="#customFont" <!-- Використання шрифта з a-assets -->
                 negate="false" <!-- Обов'язково для шрифтів -->
                 color="black"
@@ -69,9 +65,6 @@
 
     <!-- 3D модель -->
     <a-entity gltf-model="#brainModel" position="2 1 -5" scale="0.5 0.5 0.5"></a-entity>
-    <!-- Якщо використовуєте власну модель з папки models: -->
-    <!-- <a-entity gltf-model="#myOwnModel" position="2 1 -5" scale="0.5 0.5 0.5"></a-entity> -->
-
   </a-scene>
 </body>
 </html>
