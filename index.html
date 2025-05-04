@@ -1,59 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"> <!-- Для українських літер -->
-  <title>A-Frame Сцена (до 3.10, без моделі)</title>
+  <meta charset="utf-8">
+  <title>A-Frame Сцена (Завдання до 3.10)</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 <body>
-  <!-- Статистика продуктивності -->
-  <a-scene stats>
+  <a-scene>
 
     <!-- === Ассети (Розділ 3.9) === -->
     <a-assets>
-      <!-- 1. Текстура для площини (Розділ 3.8) -->
+      <!-- Текстура для основної площини (Розділ 3.8) -->
       <img id="fruitTexture"
            src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg"
            crossorigin="anonymous">
 
-      <!-- 2. Ваш шрифт (Розділ 3.6) - перевірте правильність шляху! -->
+      <!-- Ваш шрифт (Розділ 3.6) -->
       <a-asset-item id="customFont" src="fonts/myfont.json"></a-asset-item>
 
+      <!-- Модель brainModel видалена -->
     </a-assets>
 
     <!-- === Об'єкти сцени === -->
 
-    <!-- Фон -->
-    <a-sky color="#ECECEC"></a-sky>
+    <!-- Фон - зробимо трохи темнішим для контрасту тексту -->
+    <a-sky color="#DDDDDD"></a-sky>
 
-    <!-- Об'єкти з попередніх завдань -->
+    <!-- Об'єкти -->
     <a-entity>
-      <!-- Зелений тор -->
       <a-torus position="-2 1 -5" color="green" radius="1.2"></a-torus>
-      <!-- Площина з текстурою (Розділ 3.8) -->
+      <!-- Площина з текстурою (з 3.8 / рис. 3.13) -->
       <a-plane src="#fruitTexture" width="7" height="7" rotation="-55 0 0" position="-2 -2 -5"></a-plane>
-      <!-- Жовтий циліндр -->
       <a-cylinder color="yellow" height="2" radius="0.05" position="-2 -1 -5"></a-cylinder>
-      <!-- Синій циліндр -->
       <a-cylinder color="blue" height="2" radius="0.05" position="-3 -1 -5"></a-cylinder>
-      <!-- Помаранчевий тор-вузол -->
       <a-torus-knot color="orange" radius="1.2" position="-3 1 -5"></a-torus-knot>
     </a-entity>
 
-
-    <!-- Текст українською з Вашим прізвищем (Розділ 3.5, 3.6) -->
-    <a-entity position="0 1.5 -3"> <!-- Ближче і вище -->
-        <!-- Підкладка -->
-        <a-plane color="white" height="1" width="6" position="0 0 -0.1"></a-plane>
-        <!-- Сам текст -->
-        <a-text value="Welcome to VR! Kapusta"
-                font="#customFont"     <!-- Посилання на шрифт -->
-                negate="false"       <!-- Важливо для MSDF -->
-                color="black"
-                width="5"
-                anchor="center"      <!-- Центрування -->
-                align="center"></a-text>
-    </a-entity>
+    <a-text value="Welcome to VR! Kapusta"
+            font="#customFont"     
+            negate="false"       
+            color="black"
+            width="8"            
+            position="0 1.5 -4"  
+            anchor="center"
+            align="center"></a-text>
 
   </a-scene>
 </body>
