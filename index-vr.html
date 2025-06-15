@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VR Organic Chemistry</title>
+    <meta name="description" content="VR gallery of organic molecules.">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene background="color: #202020">
+        <!-- Оточення: освітлення та фон -->
+        <a-sky color="#252525"></a-sky>
+        <a-light type="ambient" color="#888"></a-light>
+        <a-light type="directional" intensity="0.8" position="-1 1 2"></a-light>
+        
+        <!-- ====================================================================== -->
+        <!--              РОЗМІЩЕННЯ 3D-МОДЕЛЕЙ У VR-ПРОСТОРІ                     -->
+        <!-- ====================================================================== -->
+
+        <!-- 1. Молекула Метану -->
+        <!-- position: x y z. Ми розміщуємо їх в ряд по осі X -->
+        <a-entity position="-6 1.6 -4">
+            <a-gltf-model src="models/methane/scene.gltf" scale="0.15 0.15 0.15" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-gltf-model>
+            <a-text value="Methane (CH4)" align="center" position="0 -1.5 0" color="#FFF" width="6"></a-text>
+        </a-entity>
+
+        <!-- 2. Молекула Етену -->
+        <a-entity position="-2 1.6 -4">
+            <a-gltf-model src="models/ethene/scene.gltf" scale="0.15 0.15 0.15" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-gltf-model>
+            <a-text value="Ethene (C2H4)" align="center" position="0 -1.5 0" color="#FFF" width="6"></a-text>
+        </a-entity>
+
+        <!-- 3. Молекула Етину -->
+        <a-entity position="2 1.6 -4">
+            <a-gltf-model src="models/ethyne/scene.gltf" scale="0.15 0.15 0.15" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-gltf-model>
+            <a-text value="Ethyne (C2H2)" align="center" position="0 -1.5 0" color="#FFF" width="6"></a-text>
+        </a-entity>
+
+        <!-- 4. Порівняння властивостей алкінів -->
+        <a-entity position="6 1.6 -4">
+            <a-gltf-model src="models/alkyne-properties/scene.gltf" scale="0.15 0.15 0.15" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-gltf-model>
+            <a-text value="Alkyne Properties" align="center" position="0 -1.5 0" color="#FFF" width="6"></a-text>
+        </a-entity>
+
+        <!-- Камера, яка дозволяє рухатися мишкою або у VR-окулярах -->
+        <!-- Ми її не вказуємо, бо A-Frame додає її за замовчуванням -->
+
+    </a-scene>
+</body>
+</html>
